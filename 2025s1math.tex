@@ -254,7 +254,7 @@
 
 \textbf{解説}
 
-高校数学のときのテクニックと何も変わらない。$\arctan x$のままでは積分しにくいから，部分積分で微分して簡単にすることを考える。有利関数に落ちつくはずであるから，当然積分実行可能である。
+$\arctan x$のままでは積分しにくいから，部分積分で微分して簡単にすることを考える。有利関数に落ちつくはずであるから，当然積分実行可能である。
 
 \begin{shadebox}
     \textbf{問題4}
@@ -265,14 +265,19 @@
 \begin{screen}
     \textbf{解答}
 
+    \text{　}$y=f(x)$即ち$x=f^{-1}(y)$とすると，$y=1/\sin x $と $x \in (-\pi /2 , \pi /2)$から$\cos x = \sqrt{1-1/y^2}$であることに注意する。また，
     \begin{align*}
         f'(x)=- \frac{\cos x}{\sin^2 x}
     \end{align*}
-    であるから，$y=f(x)$とおき$x = f^{-1}(y)$のもとで逆関数定理より
+    と逆関数定理より
     \begin{align*}
-        (f^{-1}(y))' & = \frac{1}{f'(x)}                \\
-                     & = - \frac{\sin ^2 x}{\cos x}     \\
-                     & = - \frac{1/y^2}{\sqrt{1-1/y^2}}
+        (f^{-1}(y))' & = \frac{1}{f'(x)}
+        = - \frac{\sin ^2 x}{\cos x}              = - \frac{1/y^2}{\sqrt{1-1/y^2}} \\
+                     & = - \frac{1}{|y|\sqrt{y^2-1}}.
+    \end{align*}
+    よって
+    \begin{align*}
+        (f^{-1}(x))' = - \frac{1}{|x|\sqrt{x^2-1}}.
     \end{align*}
 \end{screen}
 \end{document}
