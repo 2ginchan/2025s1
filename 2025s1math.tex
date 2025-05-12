@@ -1,0 +1,278 @@
+\documentclass[a4paper,12pt,dvipdfmx,fleqn, oneside]{jsarticle}
+\usepackage{amssymb,amsthm,amsmath,ascmac,color,bm,enumerate,float,graphicx,tikz,framed}
+
+\usetikzlibrary{intersections, calc}
+
+ %フッタ中央．ページ番号を表示
+
+\newtheoremstyle{qesstyle}
+    {0pt}
+    {0pt}
+    {}
+    {0pt}
+    {\bfseries}
+    {}
+    { }
+    {}
+\newtheoremstyle{thmx}
+    {}
+    {}
+    {}
+    {}
+    {\bfseries}
+    {}
+    { }
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ #3}}
+\newtheoremstyle{defstyle}
+    {}
+    {}
+    {}
+    {}
+    {\bfseries}
+    {}
+    { }
+    {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+\theoremstyle{defstyle}
+\newtheorem{dfn}{定義}[section]
+\newtheorem{thm}[dfn]{命題}
+\theoremstyle{thmx}
+\newtheorem*{thmx}{命題}
+\theoremstyle{qesstyle}
+\newtheorem{qes}[dfn]{問題}
+\newtheorem{cat}[dfn]{注意}
+\newtheorem*{Proof}{証明.}
+
+\renewcommand{\theenumi}{\arabic{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\everymath{\displaystyle}
+
+\definecolor{shadecolor}{gray}{0.80}
+
+\title{数理科学基礎過去問解答解説}
+\author{}
+\date{}
+
+\begin{document}
+\setlength{\abovedisplayskip}{4pt}
+\setlength{\belowdisplayskip}{4pt}
+\maketitle
+
+\section*{はじめに}
+これは，数理科学基礎の過去問のうち，微積パートに該当する\textbf{問題}とその\textbf{解答解説}をまとめたものである。同じ林先生のものを選んであるから，本プリントの勉強は試験にある程度役立つことが期待される。なお，不備の指摘を含めた質問は遠慮なく作成者まで。
+\section*{問題一覧}
+\begin{shadebox}
+    \textbf{問題1}
+
+    次の方程式を満たす$x$を求めよ。
+    \begin{align*}
+        \arccos \frac{5}{7} = \arcsin x- \arccos \frac{1}{5}
+    \end{align*}
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題2}
+
+    関数$f(x)=\left|x^3\right|$が$C^n$級となる最大の自然数$n$を求めよ。ただし，$y=f(x)$が$C^{\infty}$級になる場合には，$n=\infty$と答えよ。
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題3}
+
+    次の関数の原始関数を一つ見つけよ。
+    \begin{align*}
+        \arctan x
+    \end{align*}
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題4}
+
+    関数$f:(-\pi/ 2, \pi / 2) \rightarrow (- \infty , -1) \cup (1, \infty)$を，$f(x)=1/\sin x$と定めるとき，$f$の逆関数の導関数を求めよ。
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題5}
+
+    逆双曲正弦関数 $\text{arsinh} : \mathbb{R} \rightarrow \mathbb{R}$を考える。
+    \begin{enumerate}
+        \item 等式$\text{arsinh}\, x = \ln(x+\sqrt{x^2+1})$
+        \item $\frac{d}{dx} \text{arsinh} \, x$を求めよ。
+    \end{enumerate}
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題6}
+
+    微分可能な関数$y=f(x)$に関する微分方程式
+    \begin{align*}
+        y'=2 \sin \frac{y}{2}
+    \end{align*}
+    について考える。
+    \begin{enumerate}
+        \item $\cos \frac{y}{2}=u$とおいて置換積分の公式を用いることにより，解を任意定数を含む形で表せ。
+        \item $f(0)= \pi $を持つ解を，逆三角関数と双曲線関数により表せ。
+        \item (2)で求めた解$y=f(x)$の導関数を求め，$\cosh x$で表せ。
+    \end{enumerate}
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題7}
+
+    つぎの二変数関数$f: \mathbb{R}^2 \rightarrow \mathbb{R}$
+    \begin{align*}
+        f(x,y) =
+        \begin{cases}
+            \frac{x^3-x^3}{x^2+y^2} & (x,y) \neq (0,0) \\
+            0                       & (x,y)= (0,0)
+        \end{cases}
+    \end{align*}
+    を考える。
+    \begin{enumerate}
+        \item 関数$f(x,y)$の$(0,0)$におけるすべての偏微分係数を求めよ。
+        \item 関数$f(x,y)$のグラフの点$(1,1,f(1,1))$における接平面の方程式を求めよ。
+        \item 単位ベクトル $\bf{e}=
+                  \begin{pmatrix}
+                      (\sqrt{2})^{-1} \\
+                      (\sqrt{2})^{-1}
+                  \end{pmatrix}$に対し，関数$f(x,y)$の$(0,0)$における$\bf{e}$方向の微分係数を求めよ。
+        \item 関数$f(x,y)$は$(0,0)$において微分可能かどうか判定せよ。
+    \end{enumerate}
+\end{shadebox}
+\begin{shadebox}
+    \textbf{問題8}
+
+    次の関数$f: \mathbb{R} \rightarrow \mathbb{R}$を考える。関数$f$のすべての連続点からなる集合を$S(f)$とする。
+    \begin{align*}
+        f(x) =
+        \begin{cases}
+            x-x^3 & x \in \mathbb{Q}                       \\
+            0     & x \in \mathbb{R} \backslash \mathbb{Q}
+        \end{cases}
+    \end{align*}
+    \begin{enumerate}
+        \item $S(f)$を求めよ。
+        \item 任意の$x \in S(f)$において，$f$は連続であることを示せ。
+        \item 任意の$x \in \mathbb{R} \backslash S(f)$において，$f$は不連続であることを示せ。
+    \end{enumerate}
+\end{shadebox}
+なお，問題1,2,3,4,5は基本問題として小問集合になっていたものである。
+
+\section*{解答解説}
+\begin{shadebox}
+    \textbf{問題1}
+
+    次の方程式を満たす$x$を求めよ。
+    \begin{align*}
+        \arccos \frac{5}{7} = \arcsin x- \arccos \frac{1}{5}
+    \end{align*}
+\end{shadebox}
+
+\begin{screen}
+    \textbf{解答}
+
+    \text{　}$\phi = \arccos \frac{5}{7}, \psi = \arccos \frac{1}{5}, \theta = \arcsin x$とおく。$\phi , \psi \in [0, \pi]$に注意すると，
+    \begin{align*}
+        \sin \phi = \sqrt{1- \cos ^2 \phi }= \sqrt{1- \left(\frac{5}{7}\right)^2}=\frac{2\sqrt{6}}{7} \\
+        \sin \psi = \sqrt{1- \cos ^2 \psi }= \sqrt{1-\left(\frac{1}{5}\right)^2}= \frac{2\sqrt{6}}{5}
+    \end{align*}
+    であるから，
+    \begin{align*}
+        x = \sin \theta = \sin (\phi + \psi ) & = \sin \phi \cos \psi + \cos \phi \sin \psi                                                 \\
+                                              & =\frac{2\sqrt{6}}{7} \frac{1}{5} + \frac{5}{7} \frac{2\sqrt{6}}{5} = \frac{12\sqrt{6}}{35}.
+    \end{align*}
+\end{screen}
+
+\textbf{解説}
+
+頻出問題である。似たような問題が複数出題されている。逆三角関数で気を付けるべきは，その値域であった。今回は$\phi , \psi$の範囲が制限されることにより$\sin$の値が一意に定まることに注意する。あとは特段注意することはない。
+
+\begin{shadebox}
+    \textbf{問題2}
+
+    関数$f(x)=\left|x^3\right|$が$C^n$級となる最大の自然数$n$を求めよ。ただし，$y=f(x)$が$C^{\infty}$級になる場合には，$n=\infty$と答えよ。
+\end{shadebox}
+
+\begin{screen}
+    \textbf{解答}
+
+    \text{　}関数$f(x)$は，
+    \begin{align*}
+        f(x)= |x^3| = \begin{cases}
+            x^3  & x \geq 0 \\
+            -x^3 & x < 0
+        \end{cases}
+    \end{align*}
+    である。明らかに，$x \neq 0$では$f(x)$は任意の回数微分可能でその導関数は連続であるから，$x= 0$周りでの振る舞いを調べる。
+    \begin{align*}
+        \lim_{x \to \pm 0} \frac{f(x)-f(0)}{x-0} = \lim_{x \to \pm 0} \frac{\pm x^3}{x} = \lim_{x \to \pm 0} (\pm x^2) =0
+    \end{align*}
+    ゆえ$f'(0)$であり，あわせて
+    \begin{align*}
+        f'(x) = \begin{cases}
+            3x^2   & x  \geq 0 \\
+            - 3x^2 & x <0
+        \end{cases}
+    \end{align*}
+    となる。さらに，
+    \begin{align*}
+        \lim_{x \to \pm 0} \frac{f'(x)-f'(0)}{x-0} = \lim_{x \to \pm 0} \frac{\pm 3x^2}{x} = \lim_{x \to \pm 0} (\pm 3x) =0
+    \end{align*}
+    ゆえ$f''(0)$であり，あわせて
+    \begin{align*}
+        f''(x) = \begin{cases}
+            6x  & x \geq 0 \\
+            -6x & x <0
+        \end{cases}
+    \end{align*}
+    となり，$f(x)$は$C^2$級。しかし，
+    \begin{align*}
+        \lim_{x \to \pm 0} \frac{f''(x)-f''(0)}{x-0} = \lim_{x \to \pm 0} \frac{\pm 6x}{x} = \pm 6
+    \end{align*}
+    ゆえ$f''(x)$は$x=0$で微分不可能であり，$f(x)$は$C^3$級ではない。
+
+    \text{　}よって求める$n$は$n=2$。
+\end{screen}
+
+\textbf{解説}
+
+数理科学基礎の共通資料の確認問題そのままである。上記解答は丁寧に書いたが，$f''(x)=6|x|$が$x=0$で微分不可能であることは直接述べても問題ないだろう。共通資料の解答もそのように書いてある。
+
+\begin{shadebox}
+    \textbf{問題3}
+
+    次の関数の原始関数を一つ見つけよ。
+    \begin{align*}
+        \arctan x
+    \end{align*}
+\end{shadebox}
+
+\begin{screen}
+    \textbf{解答}
+
+    \text{　}部分積分を行って，
+    \begin{align*}
+        \int \arctan x \, dx & = x \arctan x - \int \frac{x}{1+x^2} \, dx        \\
+                             & = x \arctan x - \frac{1}{2} \ln (1+ x^2) + const.
+    \end{align*}
+    ゆえ，例えば原始関数として $x \arctan x - \frac{1}{2} \ln (1+ x^2).  $
+\end{screen}
+
+\textbf{解説}
+
+高校数学のときのテクニックと何も変わらない。$\arctan x$のままでは積分しにくいから，部分積分で微分して簡単にすることを考える。有利関数に落ちつくはずであるから，当然積分実行可能である。
+
+\begin{shadebox}
+    \textbf{問題4}
+
+    関数$f:(-\pi/ 2, \pi / 2) \rightarrow (- \infty , -1) \cup (1, \infty)$を，$f(x)=1/\sin x$と定めるとき，$f$の逆関数の導関数を求めよ。
+\end{shadebox}
+
+\begin{screen}
+    \textbf{解答}
+
+    \begin{align*}
+        f'(x)=- \frac{\cos x}{\sin^2 x}
+    \end{align*}
+    であるから，$y=f(x)$とおき$x = f^{-1}(y)$のもとで逆関数定理より
+    \begin{align*}
+        (f^{-1}(y))' & = \frac{1}{f'(x)}                \\
+                     & = - \frac{\sin ^2 x}{\cos x}     \\
+                     & = - \frac{1/y^2}{\sqrt{1-1/y^2}}
+    \end{align*}
+\end{screen}
+\end{document}
