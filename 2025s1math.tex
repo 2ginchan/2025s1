@@ -92,7 +92,7 @@
 
     逆双曲正弦関数 $\text{arsinh} : \mathbb{R} \rightarrow \mathbb{R}$を考える。
     \begin{enumerate}
-        \item 等式$\text{arsinh}\, x = \ln(x+\sqrt{x^2+1})$
+        \item 等式$\text{arsinh}\, x = \ln(x+\sqrt{x^2+1})$を示せ。
         \item $\frac{d}{dx} \text{arsinh} \, x$を求めよ。
     \end{enumerate}
 \end{shadebox}
@@ -284,4 +284,77 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 \textbf{解説}
 
 授業で$\sec x = 1/ \cos x$の逆関数の導関数を求めたから，それと何も変わりない。定義域の制限より，$\cos x$が正であることに注意すること。
+
+\begin{shadebox}
+    \textbf{問題5}
+
+    逆双曲正弦関数 $\text{arsinh} : \mathbb{R} \rightarrow \mathbb{R}$を考える。
+    \begin{enumerate}
+        \item 等式$\text{arsinh}\, x = \ln(x+\sqrt{x^2+1})$を示せ。
+        \item $\frac{d}{dx} \text{arsinh} \, x$を求めよ。
+    \end{enumerate}
+\end{shadebox}
+
+\begin{screen}
+    \textbf{解答}
+
+    \begin{enumerate}
+        \item 実際に計算してみれば，
+              \begin{align*}
+                  \sinh \ln (x + \sqrt{x^2 + 1}) & = \frac{1}{2}\left(x + \sqrt{x^2 +1 } - \frac{1}{x+ \sqrt{x^2 + 1}}\right) \\
+                                                 & = \frac{1}{2}(x + \sqrt{x^2 + 1} - (\sqrt{x^2 + 1}-x))                     \\
+                                                 & = x
+              \end{align*}
+              であるから，表式が従う。
+        \item (1)を用いれば，
+              \begin{align*}
+                  \frac{d}{dx} \text{arsinh } & = \frac{d}{dx} \ln (x + \sqrt{x^2+1})                         \\
+                                              & = \frac{1+\frac{x}{\sqrt{x^2+1}}}{x+\sqrt{x^2+1}}             \\
+                                              & = \frac{\sqrt{x^2 + 1} + x}{(x + \sqrt{x^2+1})\sqrt{x^2 + 1}} \\
+                                              & = \frac{1}{\sqrt{x^2+1}}.
+              \end{align*}
+    \end{enumerate}
+\end{screen}
+
+\textbf{解説}
+
+数理科学基礎の共通資料の確認問題そのままである。なお，(1)の表式の右辺を得るには，次のようにする。$x = \sinh y$を$y$について解く。
+\begin{align*}
+    x = \sinh y \Leftrightarrow x = \frac{e^y - e^{-y}}{2} & \Leftrightarrow (e^y)^2 - 2 x e^y -1 = 0 \, (e^y > 0\text{を掛けて整理した}) \\& \Leftrightarrow e^y = x + \sqrt{x^2 + 1} \, (\because e^y >0) \\ & \Leftrightarrow y = \ln (x+ \sqrt{x^2 + 1})
+\end{align*}
+また，(2)は逆関数定理を用いても計算できる。$ y = \text{arsinh} x $即ち$x = \sinh y$のもとで，
+\begin{align*}
+    \frac{dy}{dx} = \frac{1}{\frac{dx}{dy}}= \frac{1}{\cosh y} = \frac{1}{\sqrt{1 + \sinh y }}= \frac{1}{\sqrt{1+x^2}}
+\end{align*}
+である。
+
+\begin{shadebox}
+    \textbf{問題6}
+
+    微分可能な関数$y=f(x)$に関する微分方程式
+    \begin{align*}
+        y'=2 \sin \frac{y}{2}
+    \end{align*}
+    について考える。
+    \begin{enumerate}
+        \item $\cos \frac{y}{2}=u$とおいて置換積分の公式を用いることにより，解を任意定数を含む形で表せ。
+        \item $f(0)= \pi $を持つ解を，逆三角関数と双曲線関数により表せ。
+        \item (2)で求めた解$y=f(x)$の導関数を求め，$\cosh x$で表せ。
+    \end{enumerate}
+\end{shadebox}
+\begin{screen}
+    \textbf{解答}
+    \begin{enumerate}
+        \item $y = 2n \pi \, (n \in \mathbb{Z})$ は自明な解であるから，これは除いて考える。このとき，
+              \begin{align*}
+                  \frac{1}{\sin y/2} y' = 2
+              \end{align*}
+              の両辺に$\int \, dx$をかぶせて，
+              \begin{align*}
+                   & \int \frac{1}{\sin y/2} y' \, dx = \int 2 \, dx         \\
+                   & \int \frac{dy}{\sin y/2} = 2x + C \, (C \in \mathbb{R})
+              \end{align*}
+
+    \end{enumerate}
+\end{screen}
 \end{document}
