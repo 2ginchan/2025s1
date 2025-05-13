@@ -308,10 +308,10 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
               であるから，表式が従う。
         \item (1)を用いれば，
               \begin{align*}
-                  \frac{d}{dx} \text{arsinh } & = \frac{d}{dx} \ln (x + \sqrt{x^2+1})                         \\
-                                              & = \frac{1+\frac{x}{\sqrt{x^2+1}}}{x+\sqrt{x^2+1}}             \\
-                                              & = \frac{\sqrt{x^2 + 1} + x}{(x + \sqrt{x^2+1})\sqrt{x^2 + 1}} \\
-                                              & = \frac{1}{\sqrt{x^2+1}}.
+                  \frac{d}{dx} \text{arsinh }\, x & = \frac{d}{dx} \ln (x + \sqrt{x^2+1})                         \\
+                                                  & = \frac{1+\frac{x}{\sqrt{x^2+1}}}{x+\sqrt{x^2+1}}             \\
+                                                  & = \frac{\sqrt{x^2 + 1} + x}{(x + \sqrt{x^2+1})\sqrt{x^2 + 1}} \\
+                                                  & = \frac{1}{\sqrt{x^2+1}}.
               \end{align*}
     \end{enumerate}
 \end{screen}
@@ -322,7 +322,7 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 \begin{align*}
     x = \sinh y \Leftrightarrow x = \frac{e^y - e^{-y}}{2} & \Leftrightarrow (e^y)^2 - 2 x e^y -1 = 0 \, (e^y > 0\text{を掛けて整理した}) \\& \Leftrightarrow e^y = x + \sqrt{x^2 + 1} \, (\because e^y >0) \\ & \Leftrightarrow y = \ln (x+ \sqrt{x^2 + 1})
 \end{align*}
-また，(2)は逆関数定理を用いても計算できる。$ y = \text{arsinh} x $即ち$x = \sinh y$のもとで，
+また，(2)は逆関数定理を用いても計算できる。$ y = \text{arsinh}, x $即ち$x = \sinh y$のもとで，
 \begin{align*}
     \frac{dy}{dx} = \frac{1}{\frac{dx}{dy}}= \frac{1}{\cosh y} = \frac{1}{\sqrt{1 + \sinh y }}= \frac{1}{\sqrt{1+x^2}}
 \end{align*}
@@ -347,14 +347,53 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
     \begin{enumerate}
         \item $y = 2n \pi \, (n \in \mathbb{Z})$ は自明な解であるから，これは除いて考える。このとき，
               \begin{align*}
-                  \frac{1}{\sin y/2} y' = 2
+                  \frac{1}{2 \sin \frac{y}{2}} y' = 1
               \end{align*}
               の両辺に$\int \, dx$をかぶせて，
               \begin{align*}
-                   & \int \frac{1}{\sin y/2} y' \, dx = \int 2 \, dx         \\
-                   & \int \frac{dy}{\sin y/2} = 2x + C \, (C \in \mathbb{R})
+                   & \int \frac{1}{2 \sin \frac{y}{2}} y' \, dx = \int  \, dx         \\
+                   & \int \frac{dy}{2 \sin \frac{y}{2}} = x - C \, (C \in \mathbb{R})
               \end{align*}
-
+              を得る。左辺の積分を実行するため$\cos \frac{y}{2} = u$とおくと，$- \frac{1}{2}\sin \frac{y}{2} dy = du$で，$\sin^2 \frac{y}{2} = 1- u^2$に注意して
+              \begin{align*}
+                  \int \frac{dy}{2 \sin \frac{y}{2}} = \int -\frac{du}{1-u^2} = - \text{artanh}\,  u+ const.
+              \end{align*}
+              となる。従って元の微分方程式の解は任意定数$C$を用いて，
+              \begin{align*}
+                         & -\text{artanh} \, (\cos \frac{y}{2})  = x - C             \\
+                  i.e.\, & y                             = 2 \arccos (\tanh (-x+C)).
+              \end{align*}
     \end{enumerate}
 \end{screen}
+\begin{screen}
+    \begin{enumerate}
+        \item[(2)] (1)の一般解で$f(0)=\pi$とすれば，
+            \begin{align*}
+                2\arccos(\tanh C)     & = \pi \\
+                \therefore \, \tanh C & =0    \\
+                \therefore \, C       & = 0
+            \end{align*}
+            であるから，求める解は
+            \begin{align*}
+                f(x)=2\arccos(\tanh (-x)).
+            \end{align*}
+        \item[(3)] (2)の$f(x)$を微分すれば，
+            \begin{align*}
+                \frac{d}{dx} f(x) = \frac{-2(\tanh (-x))'}{\sqrt{1-\tanh^2 (-x)}} = \frac{2}{\cosh^2 x} |\cosh x| = \frac{2}{\cosh x}.
+            \end{align*}
+            ただし，$(\tanh(-x))'=-\frac{1}{\cosh^2 (-x)}=-\frac{1}{\cosh^2 x}$，$1-\tanh^2(-x)=\\1-\tanh^2 x = \frac{1}{\cosh^2 x} $，$\cosh x >0$を用いた。
+    \end{enumerate}
+\end{screen}
+
+\textbf{解説}
+
+与えられた微分方程式は変数分離型であるからただの積分の問題になる。その「ただの積分」も問題文で置換の方法が支持されており優しい。ただし，$\frac{1}{1-x^2}$の積分は部分分数分解をするのではなく逆双曲線関数を用いる方がよい\footnote{$u$について積分を実行したのち，$u$について解かなければならないためである。部分分数分解をして積分するとこれが煩雑になる。}。(2)の問題文もそれを示唆している。
+
+(2)は優しいが，やはり逆三角関数の取り扱いにはいくら注意してもし過ぎるということはない。途中，$\arccos(\tanh C)=\pi /2$の両辺の$\cos$をとって$\tanh C=0$を演繹しているがこれが問題ないことは大丈夫であろうか。ポイントは，$\pi /2$が$\arccos$の値域に入っていることと，逆向きの$\arccos (\cos \theta) = \theta$が常には成り立たないことである\footnote{$\theta = 2\pi$が反例}。$y=\cos (\arccos x)$と$y = \arccos (\cos x)$のグラフをそれぞれ考えてみるのがよいだろう。
+
+(3)も微分を行うだけで，双曲線関数の扱いに慣れれば優しいだろう。あるいは，$f(x)$の満たす微分方程式から，
+\begin{align*}
+    f'(x) = 2\sin (f(x)/2)= 2 \sin (\arccos (\tanh (-x))) = 2 \sqrt{1- \tanh^2(-x)}
+\end{align*}
+として，その後も同様の変形により同じ関数を得る。ただし，$\sin (\arccos x) = \sqrt{1-x^2}$であることには，符号を含めて注意が必要である。
 \end{document}
