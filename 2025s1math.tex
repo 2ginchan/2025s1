@@ -152,7 +152,7 @@
 \end{shadebox}
 なお，問題1,2,3,4,5は基本問題として小問集合になっていたものである。
 
-\section*{解答解説}
+\section*{問題再掲および解答解説}
 \begin{shadebox}
     \textbf{問題1}
 
@@ -322,9 +322,9 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 \begin{align*}
     x = \sinh y \Leftrightarrow x = \frac{e^y - e^{-y}}{2} & \Leftrightarrow (e^y)^2 - 2 x e^y -1 = 0 \, (e^y > 0\text{を掛けて整理した}) \\& \Leftrightarrow e^y = x + \sqrt{x^2 + 1} \, (\because e^y >0) \\ & \Leftrightarrow y = \ln (x+ \sqrt{x^2 + 1})
 \end{align*}
-また，(2)は逆関数定理を用いても計算できる。$ y = \text{arsinh}, x $即ち$x = \sinh y$のもとで，
+また，(2)は逆関数定理を用いても計算できる。$ y = \text{arsinh}\, x $即ち$x = \sinh y$のもとで，
 \begin{align*}
-    \frac{dy}{dx} = \frac{1}{\frac{dx}{dy}}= \frac{1}{\cosh y} = \frac{1}{\sqrt{1 + \sinh y }}= \frac{1}{\sqrt{1+x^2}}
+    \frac{dy}{dx} = \frac{1}{\frac{dx}{dy}}= \frac{1}{\cosh y} = \frac{1}{\sqrt{1 + \sinh^2 y }}= \frac{1}{\sqrt{1+x^2}}
 \end{align*}
 である。
 
@@ -468,5 +468,66 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 
 \textbf{解説}
 
-(1)と(2)は計算するのみであるから，偏微分の計算を間違えなければ問題ない。
+(1)と(2)は計算するのみであるから，偏微分の計算を間違えなければ問題ない。ただし，(2)の接平面が存在するかどうかについて\footnote{すなわち$f(x,y)$が$(1,-1)$で微分可能かどうかについて}は別問題である。今回は，偏導関数$f_x,\, f_y$が点$(1,-1)$においてそれぞれ連続であるから，確かに接平面が存在することがわかる。
+
+同じように考えれば，$f(x,y)$は$(0,0)$では微分不可能であることもわかる。良い練習であるから答案を作成してみよ。
+
+(3)では，変数$t$の取り方に注意しなければならない。すなわち，$(x,y)=(\sqrt{3}t,t)$などとしてはいけない。イメージとしては，$xy$平面に垂直な平面$\sqrt{3}y=x$で$f(x,y)$のグラフを切り，断面の曲線を微分することを考えるとよい。原点を通り$\bf{e}$に平行な新しい$t$軸を導入するのだが，原点からの向きを含めた距離を$t$にしなければならないから，答案のような導入の仕方をしなければならないのである。
+
+(4)では，二変数を同時に動かす極限を考える。これには注意が必要で，$x,y$の$0$への近づけ方は任意でなくてはならない。例えば，一般には，
+\begin{align*}
+    \lim_{x \to 0}\left( \lim_{y \to 0} f(x,y)\right) = \lim_{(x,y)\to (0,0)}f(x,y)
+\end{align*}
+などは成立しないからだ。左辺は近づき方を，「先に$y$を$0$に近づけてから，$x$を$0$に近づける」に限っている。例えば$f(x,y)=\frac{y}{x}$などについて考えてみよ。上記解答では，$\theta$が任意であることが何より重要である。
+\begin{shadebox}
+    \textbf{問題8}
+
+    次の関数$f: \mathbb{R} \rightarrow \mathbb{R}$を考える。関数$f$のすべての連続点からなる集合を$S(f)$とする。
+    \begin{align*}
+        f(x) =
+        \begin{cases}
+            x-x^3 & x \in \mathbb{Q}                       \\
+            0     & x \in \mathbb{R} \backslash \mathbb{Q}
+        \end{cases}
+    \end{align*}
+    \begin{enumerate}
+        \item $S(f)$を求めよ。
+        \item 任意の$x \in S(f)$において，$f$は連続であることを示せ。
+        \item 任意の$x \in \mathbb{R} \backslash S(f)$において，$f$は不連続であることを示せ。
+    \end{enumerate}
+\end{shadebox}
+\begin{screen}
+    \begin{enumerate}
+        \item $x-x^3=0$の解は$x=-1,0,1$であるから，答えは
+              \begin{align*}
+                  S(f)=\{-1,0,1\}.
+              \end{align*}
+              (であると推察される。(2),(3)でそれを示す。)
+        \item $f(x)$は奇関数で，$-1$倍は連続性を保存するから，$x=0,1$について示す。
+              $(i)$$x=0$での連続性
+
+                          まず，簡単な計算によって$x-x^3 \leq x \, (x \geq 0)$,$-(x-x^3) < -x \, (x < 0)$がわかる。よって任意の$x$で，$0 \leq |x-x^3|\leq |x|$である。ここで任意に正数$\varepsilon$を取れば，$0<|x-0|<\varepsilon$を満たす任意の$x$に対して，
+                          \begin{align*}
+                              |f(x)-f(0)| \leq |x-x^3| \leq |x| < \varepsilon
+                          \end{align*}
+                          である。ただし，一つ目の不等式は，$x$が有理数なら等号が成立するし，無理数なら最左辺が$0$になり不等号が従う。よって$x=0$で$f$は連続。
+
+                      $(ii)$$x=1$での連続性
+
+                      任意に正数$\varepsilon$を取る。$\delta = \min \{ 4\varepsilon/15 , 1/2 \}$ とすれば，$0<|x-1|< \delta$を満たす任意の$x$に対して，$|x-1| < 4\varepsilon /15$，$1/2 <x<3/2$である。このとき，
+                      \begin{align*}
+                          |f(x)-f(1)| & \leq |x-x^3| \\&= |x-1|x(x+1) \\&= |x-1|\left(\left(x+\frac{1}{2}\right)^2-\frac{1}{4}\right) \\& < \frac{4\varepsilon}{15} \frac{15}{4} = \varepsilon
+                      \end{align*}
+                      ただし，一つ目の不等式は(i)と同様に成り立つ。よって$x=1$で$f$は連続。
+
+                      以上から$x=-1,0,1$は$f$の連続点で，すなわち$S(f)$の元である。
+    \end{enumerate}
+\end{screen}
+\begin{screen}
+    \begin{enumerate}
+        \item[(3)] $(i)$ $x \in \mathbb{R}\backslash \mathbb{Q}$のとき
+
+            今$f$が$x$で連続であったと仮定する。すると$x$に収束する有理数列$\{x_n\}$に対して，$\{f(x_n)\}=\{x_n-{x_n}^3\}$も$f(x)=0$に収束せねばならない。
+    \end{enumerate}
+\end{screen}
 \end{document}
