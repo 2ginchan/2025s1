@@ -117,20 +117,20 @@
     \begin{align*}
         f(x,y) =
         \begin{cases}
-            \frac{x^3-x^3}{x^2+y^2} & (x,y) \neq (0,0) \\
-            0                       & (x,y)= (0,0)
+            \frac{y^3}{x^2+y^2} & (x,y) \neq (0,0) \\
+            0                   & (x,y)= (0,0)
         \end{cases}
     \end{align*}
     を考える。
     \begin{enumerate}
         \item 関数$f(x,y)$の$(0,0)$におけるすべての偏微分係数を求めよ。
-        \item 関数$f(x,y)$のグラフの点$(1,1,f(1,1))$における接平面の方程式を求めよ。
+        \item 関数$f(x,y)$のグラフの点$(1,-1,f(1,-1))$における接平面の方程式を求めよ。
         \item 単位ベクトル $\bf{e}=
                   \begin{pmatrix}
-                      (\sqrt{2})^{-1} \\
-                      (\sqrt{2})^{-1}
+                      (\sqrt{3})/2 \\
+                      1/2
                   \end{pmatrix}$に対し，関数$f(x,y)$の$(0,0)$における$\bf{e}$方向の微分係数を求めよ。
-        \item 関数$f(x,y)$は$(0,0)$において微分可能かどうか判定せよ。
+        \item 関数$f(x,y)$は$(0,0)$において連続であることを示せ。
     \end{enumerate}
 \end{shadebox}
 \begin{shadebox}
@@ -345,7 +345,7 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 \begin{screen}
     \textbf{解答}
     \begin{enumerate}
-        \item $y = 2n \pi \, (n \in \mathbb{Z})$ は自明な解であるから，これは除いて考える。このとき，
+        \item $y \equiv  2n \pi \, (n \in \mathbb{Z})$ は自明な解であるから，これは除いて考える。このとき，
               \begin{align*}
                   \frac{1}{2 \sin \frac{y}{2}} y' = 1
               \end{align*}
@@ -387,7 +387,7 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
 
 \textbf{解説}
 
-与えられた微分方程式は変数分離型であるからただの積分の問題になる。その「ただの積分」も問題文で置換の方法が支持されており優しい。ただし，$\frac{1}{1-x^2}$の積分は部分分数分解をするのではなく逆双曲線関数を用いる方がよい\footnote{$u$について積分を実行したのち，$u$について解かなければならないためである。部分分数分解をして積分するとこれが煩雑になる。}。(2)の問題文もそれを示唆している。
+与えられた微分方程式は変数分離型であるからただの積分の問題になる。その「ただの積分」も問題文で置換の方法が支持されており優しい。ただし，$\frac{1}{1-x^2}$の積分は部分分数分解をするのではなく逆双曲線関数を用いる方がよい\footnote{$u$について積分を実行したのち，$u$について解かなければならないためである。部分分数分解をして積分するとこれが煩雑になる。}。(2)の問題文もそれを示唆している。なお，得られた一般解で$C \to \pm \infty $とすれば形式的に自明な解$y\equiv 2n \pi$を得る。
 
 (2)は優しいが，やはり逆三角関数の取り扱いにはいくら注意してもし過ぎるということはない。途中，$\arccos(\tanh C)=\pi /2$の両辺の$\cos$をとって$\tanh C=0$を演繹しているがこれが問題ないことは大丈夫であろうか。ポイントは，$\pi /2$が$\arccos$の値域に入っていることと，逆向きの$\arccos (\cos \theta) = \theta$が常には成り立たないことである。$y=\cos (\arccos x)$と$y = \arccos (\cos x)$のグラフをそれぞれ考えてみるのがよいだろう。
 
@@ -403,20 +403,70 @@ $\arctan x$のままでは積分しにくいから，部分積分で微分して
     \begin{align*}
         f(x,y) =
         \begin{cases}
-            \frac{x^3-x^3}{x^2+y^2} & (x,y) \neq (0,0) \\
-            0                       & (x,y)= (0,0)
+            \frac{y^3}{x^2+y^2} & (x,y) \neq (0,0) \\
+            0                   & (x,y)= (0,0)
         \end{cases}
     \end{align*}
     を考える。
     \begin{enumerate}
         \item 関数$f(x,y)$の$(0,0)$におけるすべての偏微分係数を求めよ。
-        \item 関数$f(x,y)$のグラフの点$(1,1,f(1,1))$における接平面の方程式を求めよ。
+        \item 関数$f(x,y)$のグラフの点$(1,-1,f(1,-1))$における接平面の方程式を求めよ。
         \item 単位ベクトル $\bf{e}=
                   \begin{pmatrix}
-                      (\sqrt{2})^{-1} \\
-                      (\sqrt{2})^{-1}
+                      (\sqrt{3})/2 \\
+                      1/2
                   \end{pmatrix}$に対し，関数$f(x,y)$の$(0,0)$における$\bf{e}$方向の微分係数を求めよ。
-        \item 関数$f(x,y)$は$(0,0)$において微分可能かどうか判定せよ。
+        \item 関数$f(x,y)$は$(0,0)$において連続であることを示せ。
     \end{enumerate}
 \end{shadebox}
+\begin{screen}
+    \textbf{解答}
+
+    \begin{enumerate}
+        \item \begin{align*}
+                  f_x(0,0)
+                  = \lim_{x \to 0}\frac{f(x,0)-f(0,0)}{x-0}
+                  = \lim_{x \to 0}\frac{0}{x}=0.
+              \end{align*}
+              \begin{align*}
+                  f_y(0,0)
+                  = \lim_{y \to 0}\frac{f(0,y)-f(0,0)}{y-0}
+                  = \lim_{y \to 0}\frac{y}{y} = 1.
+              \end{align*}
+        \item $(x,y) \neq (0,0)$においては
+              \begin{align*}
+                  f_x(x,y)=-\frac{2xy^3}{(x^2+y^2)^2}
+              \end{align*}
+              \begin{align*}
+                  f_y(x,y)=\frac{3y^2}{x^2+y^2}-\frac{2y^4}{(x^2+y^2)^2}
+              \end{align*}
+              であるから，$f_x(1,-1)=\frac{1}{2},\, f_y(1,-1)=1$となる。従って求める接平面の方程式は，$f(1,-1)=-\frac{1}{2}$も用いて
+              \begin{align*}
+                          & z = \frac{1}{2}(x-1)+1\cdot (y+1)-\frac{1}{2} \\
+                  i.e. \, & z = \frac{1}{2}x +y.
+              \end{align*}
+    \end{enumerate}
+\end{screen}
+\begin{screen}
+    \begin{enumerate}
+        \item[(3)] $t \in \mathbb{R}$を用いて点$(x,y)=\left(\frac{t\sqrt{3}}{2},\frac{t}{2}\right)$を考えればこれは原点から単位ベクトル$\bf{e}$方向に符号込みで$t$だけ離れている。この方向の微分係数は，
+            \begin{align*}
+                \left. \frac{d}{dt} f\left(\frac{t}{\sqrt{2}},\frac{t}{\sqrt{2}}\right)\right|_{t=0} =\left. \frac{d}{dt} \frac{t}{8} \right|_{t=0} = \frac{1}{8}
+            \end{align*}
+            である。
+        \item[(4)] $(x,y)=(r\cos \theta, r\sin \theta)$とおくと，$\theta$任意のもとで$r \to 0$のときの$f(x,y)$の極限は$0$である。実際，
+            \begin{align*}
+                0 \leq |f(r\cos \theta , r\sin \theta)|= |r \sin^3 \theta| \leq |r|
+            \end{align*}
+            である。よって
+            \begin{align*}
+                \lim_{(x,y)\to (0,0)}f(x,y) = 0 =f(0,0)
+            \end{align*}
+            すなわち$f(x,y)$は$(0,0)$で連続。
+    \end{enumerate}
+\end{screen}
+
+\textbf{解説}
+
+(1)と(2)は計算するのみであるから，偏微分の計算を間違えなければ問題ないだろう。
 \end{document}
