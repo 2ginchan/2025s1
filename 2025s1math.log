@@ -1,9 +1,9 @@
-This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.12.2)  13 MAY 2025 18:34
+This is e-pTeX, Version 3.141592653-p3.9.0-210218-2.6 (utf8.sjis) (TeX Live 2021/W32TeX) (preloaded format=platex 2021.11.5)  14 MAY 2025 22:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**c:/Users/junta_zfa66pu/Documents/tex/2025s1math
-(c:/Users/junta_zfa66pu/Documents/tex/2025s1math.tex
+**d:/Ddrive-document/TeX/2025s1math
+(d:/Ddrive-document/TeX/2025s1math.tex
 pLaTeX2e <2020-10-01>+2 (based on LaTeX2e <2020-10-01> patch level 4)
 L3 programming layer <2021-02-18> (c:/texlive/2021/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2020/10/09 jsclasses (okumura, texjporg)
@@ -489,14 +489,17 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 93.
  [1
 
-] [2] [3] [4] [5] [6] [7] (./2025s1math.aux) ) 
+] [2] [3] [4] [5] [6] [7]
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 390.
+ [8] [9] (./2025s1math.aux) ) 
 Here is how much of TeX's memory you used:
- 13651 strings out of 479466
- 269913 string characters out of 5873881
+ 13652 strings out of 479466
+ 269883 string characters out of 5873881
  562756 words of memory out of 5000000
- 31072 multiletter control sequences out of 15000+600000
- 423252 words of font info for 116 fonts, out of 8000000 for 9000
+ 31073 multiletter control sequences out of 15000+600000
+ 423441 words of font info for 117 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 87i,16n,89p,424b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,16n,89p,474b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 2025s1math.dvi (7 pages, 22888 bytes).
+Output written on 2025s1math.dvi (9 pages, 30316 bytes).
